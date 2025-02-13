@@ -1,4 +1,4 @@
-import "react";
+import React from "react";
 import { Circles } from "react-loader-spinner";
 
 const Loader = () => (
