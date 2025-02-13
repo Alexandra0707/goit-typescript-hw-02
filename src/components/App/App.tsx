@@ -8,6 +8,25 @@ import SearchBar from "../SearchBar/SearchBar";
 import ImageModal from "../ImageModal/ImageModal";
 import { ImageData, feachImagesData } from "./App.types";
 
+type SearchBarProps = {
+  onSubmit: (value: string) => void;
+};
+
+type ImageGalleryProps = {
+  images: ImageData[];
+  openModal: (image: ImageData) => void;
+};
+
+type LoadMoreBtnProps = {
+  onPage: () => void;
+  isLoading: boolean;
+};
+
+type ImageModalProps = {
+  image: ImageData | null;
+  onClose: () => void;
+};
+
 function App() {
   const [query, setQuery] = useState<string>("");
   const [page, setPage] = useState<number>(1);

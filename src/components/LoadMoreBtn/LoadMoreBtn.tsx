@@ -1,22 +1,23 @@
-import React from "react";
-import s from "./Loader.module.css";
-import { ThreeCircles } from "react-loader-spinner";
+import React, { FC } from "react";
+import s from "./LoadMoreBtn.module.css";
 
-const Loader = () => {
+interface LoadMoreBtnProps {
+  onPage: () => void;
+  isLoading: boolean;
+}
+
+const LoadMoreBtn: FC<LoadMoreBtnProps> = ({ onPage, isLoading }) => {
   return (
-    <div className={s.loader}>
-      render(
-      <ThreeCircles
-        visible={true}
-        height="100"
-        width="100"
-        color="blue"
-        ariaLabel="three-circles-loading"
-        wrapperStyle={{}}
-        wrapperClass=""
-      />
-      )
+    <div>
+      <button
+        className={s.loadBtn}
+        onClick={onPage}
+        type="button"
+        disabled={isLoading}
+      >
+        {isLoading ? "Loading..." : "Load more"}
+      </button>
     </div>
   );
 };
-export default Loader;
+export default LoadMoreBtn;
